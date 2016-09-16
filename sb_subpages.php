@@ -35,7 +35,6 @@
 		
 	} else if (is_admin()) {
 		$sbsp = array(
-			'wpmlPath'		=> 'sitepress-multilingual-cms/sitepress.php',
 			'cacheKey'		=> 'sbsp_select',
 			'keyCreated'	=> FALSE
 		);
@@ -143,19 +142,9 @@
 			global $sbsp;
 			
 			if ($sbsp['keyCreated'] === FALSE) {
-				$screen = get_current_screen();
-				$sbsp['cacheKey'] .= '_' . $screen->post_type;
-				
-				if (is_plugin_active($sbsp['wpmlPath'])) {
-					global $sitepress;
-					
-					$current_language = $sitepress->get_current_language();
-					$current_language = $current_language ? $current_language : $sitepress->get_default_language();
-					
-					$sbsp['cacheKey'] .= '_' .  $current_language;
-				}
-				
-				$sbsp['keyCreated'] = TRUE;
+				$screen				= get_current_screen();
+				$sbsp['cacheKey']  .= '_' . $screen->post_type;
+				$sbsp['keyCreated']	= TRUE;
 			}
 			
 			return $sbsp['cacheKey'];
@@ -169,7 +158,7 @@
 		 */
 		function sbsp_removeCacheKey() {
 			$screen = get_current_screen();
-			
+			setcookie("TestCookie", sbsp_getCacheKey());
 				// We are only interested in hierarchical post types.
 			if (is_post_type_hierarchical($screen->post_type)) delete_transient(sbsp_getCacheKey());
 		}
