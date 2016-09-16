@@ -1,7 +1,7 @@
 <?php
 	/*
 	Plugin Name:	SB Subpage Filter
-	Plugin URI:
+	Plugin URI:	https://github.com/sbungert/sb_subpages/
 	Description:	Adds a filter to hierarchical post listing tables allowing you to view only subpages of a specific page.
 	Version:	1.0.0
 	Author:		sbungert
