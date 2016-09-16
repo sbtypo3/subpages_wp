@@ -146,7 +146,14 @@
 				$screen = get_current_screen();
 				$sbsp['cacheKey'] .= '_' . $screen->post_type;
 				
-				if (is_plugin_active($sbsp['wpmlPath'])) $sbsp['cacheKey'] .= '_' . ICL_LANGUAGE_CODE;
+				if (is_plugin_active($sbsp['wpmlPath'])) {
+					global $sitepress;
+					
+					$current_language = $sitepress->get_current_language();
+					$current_language = $current_language ? $current_language : $sitepress->get_default_language();
+					
+					$sbsp['cacheKey'] .= '_' .  $current_language;
+				}
 				
 				$sbsp['keyCreated'] = TRUE;
 			}
