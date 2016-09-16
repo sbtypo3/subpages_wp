@@ -12,7 +12,7 @@
 	
 	
 	/*  
- 		Copyright 2016  Stephen Bungert  (email : sb.design.de@gmail.com)
+	    Copyright 2016  Stephen Bungert  (email : sb.design.de@gmail.com)
 	
 	    This program is free software; you can redistribute it and/or modify
 	    it under the terms of the GNU General Public License, version 2, as 
